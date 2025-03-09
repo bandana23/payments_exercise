@@ -24,6 +24,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry'
   gem 'bootsnap'
+  gem 'factory_bot', '< 6.0'
 end
 
 group :development do
