@@ -12,17 +12,16 @@ class Payment < ActiveRecord::Base
       errors.add(:loan, "must exist")
     else
       if amount > loan.calculate_outstanding_balance
-        puts "errors".inspect
         errors.add(:amount, "should not exceeds the outstanding balance")
       end
     end
   end
 
   private
-  #updating outstanding balance to loan table
+  
+  #updating outstanding balance to loan tablel
   def update_outstanding_balance
     new_outstanding_balance = loan.funded_amount - loan.payments.sum(:amount)
     loan.update(outstanding_balance: new_outstanding_balance)
   end
-
 end
